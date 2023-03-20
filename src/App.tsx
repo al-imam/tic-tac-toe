@@ -2,7 +2,6 @@ function App() {
   return (
     <main>
       <div className="grid grid-cols-3 grid-rows-3">
-        <div className="h-10 bg-red-700 w-10 inline-block"></div>
         <div className="h-10 bg-blue-700 w-10 inline-block"></div>
         <div className="h-10 bg-red-700 w-10 inline-block"></div>
         <div className="h-10 bg-teal-700 w-10 inline-block"></div>
