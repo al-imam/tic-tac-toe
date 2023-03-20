@@ -6,4 +6,20 @@
   .grid-layout :nth-child(2n) {
     @apply border border-red-900;
   }
+
+  .grid-layout :nth-child(2) {
+    @apply border-t-0;
+  }
+
+  .grid-layout :nth-child(4) {
+    @apply border-l-0;
+  }
+
+  .grid-layout :nth-child(6) {
+    @apply border-r-0;
+  }
+
+  .grid-layout :nth-child(8) {
+    @apply border-b-0;
+  }
 }
