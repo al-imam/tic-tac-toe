@@ -56,11 +56,11 @@ function reducer(prev: AppState, action: Action) {
         return prev;
       }
 
-      if (grid.every((n) => n !== null)) {
-        return { ...prev, current: null, win: "draw" };
-      }
-
       const updatedGrid = grid.map((n, i) => (i === index ? current : n));
+
+      if (updatedGrid.every((n) => n !== null)) {
+        return { grid: updatedGrid, current: null, win: "draw" };
+      }
 
       if (findWinner(updatedGrid)) {
         return {
