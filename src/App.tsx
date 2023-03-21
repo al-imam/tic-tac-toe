@@ -16,7 +16,7 @@ function App() {
     <main className="flex justify-center items-center h-screen">
       <div className="grid grid-cols-3 grid-rows-3 grid-layout ">
         {grid.map((_, i) => (
-          <Cell />
+          <Cell classes="" />
         ))}
       </div>
     </main>

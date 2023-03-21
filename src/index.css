@@ -3,6 +3,11 @@
 @tailwind utilities;
 
 @layer components {
+  :root {
+    --cell-size: 10rem;
+    --mark-size: calc(var(--cell-size) * 0.9);
+  }
+
   .cell {
     @apply border-slate-300 border;
   }
@@ -25,5 +30,45 @@
   .cell:nth-child(8),
   .cell:nth-child(7) {
     border-bottom: none;
+  }
+
+  .cell.x::before,
+  .cell.x::after,
+  .cell.circle::before {
+    background-color: black;
+  }
+
+  .cell.x::before,
+  .cell.x::after {
+    content: "";
+    position: absolute;
+    width: calc(var(--mark-size) * 0.15);
+    height: var(--mark-size);
+  }
+
+  .cell.x::before {
+    transform: rotate(45deg);
+  }
+
+  .cell.x::after {
+    transform: rotate(-45deg);
+  }
+
+  .cell.circle::before,
+  .cell.circle::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+  }
+
+  .cell.circle::before {
+    width: var(--mark-size);
+    height: var(--mark-size);
+  }
+
+  .cell.circle::after {
+    width: calc(var(--mark-size) * 0.7);
+    height: calc(var(--mark-size) * 0.7);
+    @apply bg-slate-900;
   }
 }
