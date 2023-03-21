@@ -88,8 +88,13 @@ function App() {
   return (
     <main className="flex justify-center items-center h-screen relative">
       {win === null || (
-        <div className="absolute inset-0 bg-black bg-opacity-90 z-10 flex justify-center items-center">
-          {win}
+        <div className="absolute inset-0 bg-black bg-opacity-90 z-10 flex flex-col justify-center items-center">
+          <span className="text-9xl text-white">
+            {win === "draw" ? "Match is draw" : win}
+          </span>
+          <button className="text-3xl text-blue-500 hover:text-blue-700 transition">
+            Restart
+          </button>
         </div>
       )}
       <div className={`grid grid-cols-3 grid-rows-3 grid-layout ${current}`}>
