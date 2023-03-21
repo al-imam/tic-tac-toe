@@ -8,84 +8,84 @@
     --mark-size: calc(var(--cell-size) * 0.9);
   }
 
-  .cell {
+  .box {
     @apply border-slate-300 border cursor-pointer;
   }
 
-  .cell:first-child,
-  .cell:nth-child(2),
-  .cell:nth-child(3) {
+  .box:first-child,
+  .box:nth-child(2),
+  .box:nth-child(3) {
     border-top: none;
   }
 
-  .cell:nth-child(3n + 1) {
+  .box:nth-child(3n + 1) {
     border-left: none;
   }
 
-  .cell:nth-child(3n + 3) {
+  .box:nth-child(3n + 3) {
     border-right: none;
   }
 
-  .cell:last-child,
-  .cell:nth-child(8),
-  .cell:nth-child(7) {
+  .box:last-child,
+  .box:nth-child(8),
+  .box:nth-child(7) {
     border-bottom: none;
   }
 
-  .cell.cross,
-  .cell.circle {
+  .box.cross,
+  .box.circle {
     cursor: auto;
   }
 
-  .cell.cross::before,
-  .cell.cross::after,
-  .cell.circle::before {
+  .box.cross::before,
+  .box.cross::after,
+  .box.circle::before {
     @apply bg-white;
   }
 
-  .grid-layout.cross .cell:not(.cross):not(.circle):hover::before,
-  .grid-layout.cross .cell:not(.cross):not(.circle):hover::after,
-  .grid-layout.circle .cell:not(.cross):not(.circle):hover::before {
+  .grid-layout.cross .box:not(.cross):not(.circle):hover::before,
+  .grid-layout.cross .box:not(.cross):not(.circle):hover::after,
+  .grid-layout.circle .box:not(.cross):not(.circle):hover::before {
     @apply bg-slate-500;
   }
 
-  .cell.cross::before,
-  .cell.cross::after,
-  .grid-layout.cross .cell:not(.cross):not(.circle):hover::before,
-  .grid-layout.cross .cell:not(.cross):not(.circle):hover::after {
+  .box.cross::before,
+  .box.cross::after,
+  .grid-layout.cross .box:not(.cross):not(.circle):hover::before,
+  .grid-layout.cross .box:not(.cross):not(.circle):hover::after {
     content: "";
     position: absolute;
     width: calc(var(--mark-size) * 0.15);
     height: var(--mark-size);
   }
 
-  .cell.cross::before,
-  .grid-layout.cross .cell:not(.cross):not(.circle):hover::before {
+  .box.cross::before,
+  .grid-layout.cross .box:not(.cross):not(.circle):hover::before {
     transform: rotate(45deg);
   }
 
-  .cell.cross::after,
-  .grid-layout.cross .cell:not(.cross):not(.circle):hover::after {
+  .box.cross::after,
+  .grid-layout.cross .box:not(.cross):not(.circle):hover::after {
     transform: rotate(-45deg);
   }
 
-  .cell.circle::before,
-  .cell.circle::after,
-  .grid-layout.circle .cell:not(.cross):not(.circle):hover::before,
-  .grid-layout.circle .cell:not(.cross):not(.circle):hover::after {
+  .box.circle::before,
+  .box.circle::after,
+  .grid-layout.circle .box:not(.cross):not(.circle):hover::before,
+  .grid-layout.circle .box:not(.cross):not(.circle):hover::after {
     content: "";
     position: absolute;
     border-radius: 50%;
   }
 
-  .cell.circle::before,
-  .grid-layout.circle .cell:not(.cross):not(.circle):hover::before {
+  .box.circle::before,
+  .grid-layout.circle .box:not(.cross):not(.circle):hover::before {
     width: var(--mark-size);
     height: var(--mark-size);
   }
 
-  .cell.circle::after,
-  .grid-layout.circle .cell:not(.cross):not(.circle):hover::after {
+  .box.circle::after,
+  .grid-layout.circle .box:not(.cross):not(.circle):hover::after {
     width: calc(var(--mark-size) * 0.7);
     height: calc(var(--mark-size) * 0.7);
     @apply bg-slate-900;
