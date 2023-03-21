@@ -92,6 +92,11 @@ function App() {
     (state: AppState, action: Action) => AppState
   >(reducer, init);
 
+  function callback(n: string | null, i: number) {
+    if (n !== null) return;
+    dispatch({ type: "add", index: i });
+  }
+
   return (
     <main className="flex justify-center items-center h-screen relative">
       {win === null || (
@@ -109,10 +114,7 @@ function App() {
       )}
       <div className={`grid grid-cols-3 grid-rows-3 grid-layout ${current}`}>
         {grid.map((node, i) => (
-          <Cell
-            classes={node}
-            onTap={() => dispatch({ type: "add", index: i })}
-          />
+          <Cell classes={node} onTap={() => callback(node, i)} />
         ))}
       </div>
     </main>
