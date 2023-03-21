@@ -4,17 +4,19 @@ import { useReducer } from "react";
 const init = {
   grid: Array(9).fill(null),
   current: "x",
+  win: null,
 };
 
 function reducer(
-  { grid, current }: typeof init,
+  { grid, current, win }: typeof init,
   { index, node }: { index: number; node: string }
 ) {
-  if (grid.every((n) => n !== null)) return { grid, current };
+  if (grid.every((n) => n !== null)) return { grid, current, win };
 
   grid[index] = node === null ? current : node;
 
   return {
+    win,
     grid,
     current: node !== null ? current : current === "x" ? "circle" : "x",
   };
