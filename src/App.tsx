@@ -1,4 +1,4 @@
-import Cell from "./Cell";
+import Box from "./Box";
 import { useReducer } from "react";
 
 interface AppState {
@@ -114,7 +114,7 @@ function App() {
       )}
       <div className={`grid grid-cols-3 grid-rows-3 grid-layout ${current}`}>
         {grid.map((node, i) => (
-          <Cell classes={node} onTap={() => callback(node, i)} />
+          <Box classes={node} onTap={() => callback(node, i)} />
         ))}
       </div>
     </main>

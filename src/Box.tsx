@@ -1,4 +1,4 @@
-export default function Cell({
+export default function Box({
   classes,
   onTap,
 }: {
