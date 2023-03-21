@@ -48,8 +48,10 @@ type Action = TapAction | ResetAction;
 function reducer(prev: AppState, action: Action) {
   const { grid, current, win } = prev;
 
-  switch (type) {
+  switch (action.type) {
     case "add":
+      const { index } = action;
+
       if (win !== null) {
         return prev;
       }
@@ -73,23 +75,24 @@ function reducer(prev: AppState, action: Action) {
         current: current === "x" ? "circle" : "x",
         win,
       };
-
     default:
-      return prev;
+      throw new Error(`No action called ${action.type}!`);
   }
 }
 
 function App() {
-  const [{ grid, current, win }, dispatch] = useReducer(reducer, init);
+  const [{ grid, win, current }, dispatch] = useReducer<
+    (state: AppState, action: Action) => AppState
+  >(reducer, init);
 
   return (
     <main className="flex justify-center items-center h-screen">
-      {win === null || <div>lol</div>}
+      {win === null || <div> lol</div>}
       <div className={`grid grid-cols-3 grid-rows-3 grid-layout ${current}`}>
         {grid.map((node, i) => (
           <Cell
             classes={node}
-            onTap={() => dispatch({ index: i, type: "add" })}
+            onTap={() => dispatch({ type: "add", index: i })}
           />
         ))}
       </div>
