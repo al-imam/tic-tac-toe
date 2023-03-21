@@ -1,13 +1,13 @@
 import Cell from "./Cell";
 import { useReducer } from "react";
 
-interface Init {
+interface AppState {
   grid: any[];
   current: null | string;
   win: null | string;
 }
 
-const init: Init = {
+const init: AppState = {
   grid: Array(9).fill(null),
   current: "x",
   win: null,
@@ -34,32 +34,43 @@ function findWinner(g: (null | string)[]): null | string {
   return null;
 }
 
-interface TapAction {
-  type: "add";
-  payload: { index: number; node: string };
+interface AppAction {
+  type: "add" | "reset";
+  index: number;
 }
 
-interface ResetAction {
-  type: "reset";
-}
+function reducer(prev: AppState, { index, type }: AppAction) {
+  const { grid, current, win } = prev;
 
-function reducer(
-  { grid, current, win }: Init,
-  { index, node }: { index: number; node: string }
-) {
-  const newState = {
-    grid: grid.map((n, i) => (i === index ? current : n)),
-    current: node !== null ? current : current === "x" ? "circle" : "x",
-    win,
-  };
+  switch (type) {
+    case "add":
+      if (win !== null) {
+        return prev;
+      }
 
-  if (findWinner(newState.grid)) {
-    return { grid: newState.grid, current: null, win: current };
+      if (grid.every((n) => n !== null)) {
+        return { ...prev, current: null, win: "draw" };
+      }
+
+      const updatedGrid = grid.map((n, i) => (i === index ? current : n));
+
+      if (findWinner(updatedGrid)) {
+        return {
+          grid: updatedGrid,
+          current: null,
+          win: current,
+        };
+      }
+
+      return {
+        grid: updatedGrid,
+        current: current === "x" ? "circle" : "x",
+        win,
+      };
+
+    default:
+      return prev;
   }
-
-  if (grid.every((n) => n !== null)) return { grid, current, win };
-
-  return newState;
 }
 
 function App() {
@@ -70,7 +81,10 @@ function App() {
       {win === null || <div>lol</div>}
       <div className={`grid grid-cols-3 grid-rows-3 grid-layout ${current}`}>
         {grid.map((node, i) => (
-          <Cell classes={node} onTap={() => dispatch({ index: i, node })} />
+          <Cell
+            classes={node}
+            onTap={() => dispatch({ index: i, type: "add" })}
+          />
         ))}
       </div>
     </main>
