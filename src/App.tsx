@@ -83,7 +83,7 @@ function reducer(prev: AppState, action: Action) {
       };
 
     default:
-      throw new Error(`No action called ${action.type}!`);
+      throw new Error(`Action not recognize!`);
   }
 }
 
@@ -99,7 +99,10 @@ function App() {
           <span className="text-9xl text-white">
             {win === "draw" ? "Match is draw" : win}
           </span>
-          <button className="text-3xl text-blue-500 hover:text-blue-700 transition">
+          <button
+            onClick={() => dispatch({ type: "reset" })}
+            className="text-3xl text-blue-500 hover:text-blue-700 transition"
+          >
             Restart
           </button>
         </div>
