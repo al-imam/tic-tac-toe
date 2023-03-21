@@ -95,9 +95,9 @@ function App() {
   return (
     <main className="flex justify-center items-center h-screen relative">
       {win === null || (
-        <div className="absolute inset-0 bg-black bg-opacity-90 z-10 flex flex-col justify-center items-center">
-          <span className="text-9xl text-white">
-            {win === "draw" ? "Match is draw" : win}
+        <div className="absolute inset-0 bg-black bg-opacity-90 z-10 flex flex-col gap-4 justify-center items-center">
+          <span className="text-6xl text-white">
+            {win === "draw" ? "match draw 🤝" : `${win} win 🎉`}
           </span>
           <button
             onClick={() => dispatch({ type: "reset" })}
