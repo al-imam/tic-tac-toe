@@ -9,7 +9,7 @@
   }
 
   .box {
-    @apply border-slate-300 border cursor-pointer;
+    @apply border-slate-900 dark:border-slate-300 border cursor-pointer;
   }
 
   .box:first-child,
