@@ -38,26 +38,27 @@ function reducer(
   { grid, current, win }: Init,
   { index, node }: { index: number; node: string }
 ) {
-  if (grid.every((n) => n !== null)) return { grid, current, win };
+  const newState = {
+    grid: grid.map((n, i) => (i === index ? current : n)),
+    current: node !== null ? current : current === "x" ? "circle" : "x",
+    win,
+  };
 
-  grid[index] = node === null ? current : node;
-
-  if (findWinner(grid)) {
-    return { grid, current: null, win: node };
+  if (findWinner(newState.grid)) {
+    return { grid: newState.grid, current: null, win: current };
   }
 
-  return {
-    win,
-    grid,
-    current: node !== null ? current : current === "x" ? "circle" : "x",
-  };
+  if (grid.every((n) => n !== null)) return { grid, current, win };
+
+  return newState;
 }
 
 function App() {
-  const [{ grid, current }, dispatch] = useReducer(reducer, init);
+  const [{ grid, current, win }, dispatch] = useReducer(reducer, init);
 
   return (
     <main className="flex justify-center items-center h-screen">
+      {win === null || <div>lol</div>}
       <div className={`grid grid-cols-3 grid-rows-3 grid-layout ${current}`}>
         {grid.map((node, i) => (
           <Cell classes={node} onTap={() => dispatch({ index: i, node })} />
