@@ -40,13 +40,13 @@
   .cell.x::before,
   .cell.x::after,
   .cell.circle::before {
-    @apply bg-black;
+    @apply bg-white;
   }
 
   .grid-layout.x .cell:not(.x):not(.circle):hover::before,
   .grid-layout.x .cell:not(.x):not(.circle):hover::after,
   .grid-layout.circle .cell:not(.x):not(.circle):hover::before {
-    @apply bg-black opacity-60;
+    @apply bg-slate-500;
   }
 
   .cell.x::before,
