@@ -34,12 +34,18 @@ function findWinner(g: (null | string)[]): null | string {
   return null;
 }
 
-interface AppAction {
-  type: "add" | "reset";
+interface TapAction {
+  type: "add";
   index: number;
 }
 
-function reducer(prev: AppState, { index, type }: AppAction) {
+interface ResetAction {
+  type: "reset";
+}
+
+type Action = TapAction | ResetAction;
+
+function reducer(prev: AppState, action: Action) {
   const { grid, current, win } = prev;
 
   switch (type) {
