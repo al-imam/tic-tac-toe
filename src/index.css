@@ -8,12 +8,8 @@
     --mark-size: calc(var(--cell-size) * 0.9);
   }
 
-  .unset-all {
-    all: unset;
-  }
-
   .cell {
-    @apply border-slate-300 border;
+    @apply border-slate-300 border cursor-pointer;
   }
 
   .cell:first-child,
@@ -38,7 +34,7 @@
 
   .cell.cross,
   .cell.circle {
-    cursor: not-allowed;
+    cursor: auto;
   }
 
   .cell.cross::before,
