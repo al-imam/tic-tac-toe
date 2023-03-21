@@ -75,6 +75,13 @@ function reducer(prev: AppState, action: Action) {
         current: current === "x" ? "circle" : "x",
         win,
       };
+
+    case "reset":
+      return {
+        ...init,
+        current: Math.random() > 0.5 ? "x" : "circle",
+      };
+
     default:
       throw new Error(`No action called ${action.type}!`);
   }
