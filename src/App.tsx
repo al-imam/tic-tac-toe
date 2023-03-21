@@ -6,8 +6,18 @@ const init = {
   current: "x",
 };
 
-function reducer(prev: typeof init, next: Partial<typeof init>) {
-  return { ...prev, ...next };
+function reducer(
+  { grid, current }: typeof init,
+  { index, node }: { index: number; node: string }
+) {
+  if (grid.every((n) => n !== null)) return { grid, current };
+
+  grid[index] = node === null ? current : node;
+
+  return {
+    grid,
+    current: node !== null ? current : current === "x" ? "circle" : "x",
+  };
 }
 
 function App() {
@@ -17,15 +27,7 @@ function App() {
     <main className="flex justify-center items-center h-screen">
       <div className={`grid grid-cols-3 grid-rows-3 grid-layout ${current}`}>
         {grid.map((node, i) => (
-          <Cell
-            classes={node}
-            onTap={() =>
-              dispatch({
-                grid: grid.map((n, j) => (j === i ? current : n)),
-                current: current === "x" ? "circle" : "x",
-              })
-            }
-          />
+          <Cell classes={node} onTap={() => dispatch({ index: i, node })} />
         ))}
       </div>
     </main>
