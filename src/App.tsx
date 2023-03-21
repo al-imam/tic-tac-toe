@@ -1,17 +1,17 @@
 import Cell from "./Cell";
 import { useReducer } from "react";
 
-const init = {
-  grid: Array(9).fill(null),
-  current: "x",
-  win: null,
-};
-
 interface Init {
   grid: any[];
   current: null | string;
   win: null | string;
 }
+
+const init: Init = {
+  grid: Array(9).fill(null),
+  current: "x",
+  win: null,
+};
 
 const winningCombination = [
   [0, 1, 2],
