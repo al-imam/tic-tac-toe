@@ -36,60 +36,60 @@
     border-bottom: none;
   }
 
-  .cell.x,
+  .cell.cross,
   .cell.circle {
     cursor: not-allowed;
   }
 
-  .cell.x::before,
-  .cell.x::after,
+  .cell.cross::before,
+  .cell.cross::after,
   .cell.circle::before {
     @apply bg-white;
   }
 
-  .grid-layout.x .cell:not(.x):not(.circle):hover::before,
-  .grid-layout.x .cell:not(.x):not(.circle):hover::after,
-  .grid-layout.circle .cell:not(.x):not(.circle):hover::before {
+  .grid-layout.cross .cell:not(.cross):not(.circle):hover::before,
+  .grid-layout.cross .cell:not(.cross):not(.circle):hover::after,
+  .grid-layout.circle .cell:not(.cross):not(.circle):hover::before {
     @apply bg-slate-500;
   }
 
-  .cell.x::before,
-  .cell.x::after,
-  .grid-layout.x .cell:not(.x):not(.circle):hover::before,
-  .grid-layout.x .cell:not(.x):not(.circle):hover::after {
+  .cell.cross::before,
+  .cell.cross::after,
+  .grid-layout.cross .cell:not(.cross):not(.circle):hover::before,
+  .grid-layout.cross .cell:not(.cross):not(.circle):hover::after {
     content: "";
     position: absolute;
     width: calc(var(--mark-size) * 0.15);
     height: var(--mark-size);
   }
 
-  .cell.x::before,
-  .grid-layout.x .cell:not(.x):not(.circle):hover::before {
+  .cell.cross::before,
+  .grid-layout.cross .cell:not(.cross):not(.circle):hover::before {
     transform: rotate(45deg);
   }
 
-  .cell.x::after,
-  .grid-layout.x .cell:not(.x):not(.circle):hover::after {
+  .cell.cross::after,
+  .grid-layout.cross .cell:not(.cross):not(.circle):hover::after {
     transform: rotate(-45deg);
   }
 
   .cell.circle::before,
   .cell.circle::after,
-  .grid-layout.circle .cell:not(.x):not(.circle):hover::before,
-  .grid-layout.circle .cell:not(.x):not(.circle):hover::after {
+  .grid-layout.circle .cell:not(.cross):not(.circle):hover::before,
+  .grid-layout.circle .cell:not(.cross):not(.circle):hover::after {
     content: "";
     position: absolute;
     border-radius: 50%;
   }
 
   .cell.circle::before,
-  .grid-layout.circle .cell:not(.x):not(.circle):hover::before {
+  .grid-layout.circle .cell:not(.cross):not(.circle):hover::before {
     width: var(--mark-size);
     height: var(--mark-size);
   }
 
   .cell.circle::after,
-  .grid-layout.circle .cell:not(.x):not(.circle):hover::after {
+  .grid-layout.circle .cell:not(.cross):not(.circle):hover::after {
     width: calc(var(--mark-size) * 0.7);
     height: calc(var(--mark-size) * 0.7);
     @apply bg-slate-900;

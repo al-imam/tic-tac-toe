@@ -9,7 +9,7 @@ interface AppState {
 
 const init: AppState = {
   grid: Array(9).fill(null),
-  current: "x",
+  current: "cross",
   win: null,
 };
 
@@ -72,14 +72,14 @@ function reducer(prev: AppState, action: Action) {
 
       return {
         grid: updatedGrid,
-        current: current === "x" ? "circle" : "x",
+        current: current === "cross" ? "circle" : "cross",
         win,
       };
 
     case "reset":
       return {
         ...init,
-        current: Math.random() > 0.5 ? "x" : "circle",
+        current: Math.random() > 0.5 ? "cross" : "circle",
       };
 
     default:
