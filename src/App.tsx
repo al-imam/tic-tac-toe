@@ -18,6 +18,16 @@ const winningCombination = [
   [2, 4, 6],
 ];
 
+function findWinner(g: (null | string)[]): null | string {
+  for (const [a, b, c] of winningCombination) {
+    if (g[a] && g[a] === g[b] && g[a] === g[c]) {
+      return g[a];
+    }
+  }
+
+  return null;
+}
+
 function reducer(
   { grid, current, win }: typeof init,
   { index, node }: { index: number; node: string }
