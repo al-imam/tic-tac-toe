@@ -34,6 +34,15 @@ function findWinner(g: (null | string)[]): null | string {
   return null;
 }
 
+interface TapAction {
+  type: "add";
+  payload: { index: number; node: string };
+}
+
+interface ResetAction {
+  type: "reset";
+}
+
 function reducer(
   { grid, current, win }: Init,
   { index, node }: { index: number; node: string }
