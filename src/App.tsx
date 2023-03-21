@@ -7,6 +7,12 @@ const init = {
   win: null,
 };
 
+interface Init {
+  grid: any[];
+  current: null | string;
+  win: null | string;
+}
+
 const winningCombination = [
   [0, 1, 2],
   [3, 4, 5],
@@ -29,20 +35,14 @@ function findWinner(g: (null | string)[]): null | string {
 }
 
 function reducer(
-  { grid, current, win }: typeof init,
+  { grid, current, win }: Init,
   { index, node }: { index: number; node: string }
 ) {
   if (grid.every((n) => n !== null)) return { grid, current, win };
 
   grid[index] = node === null ? current : node;
 
-  function findWinner() {
-    return winningCombination.some((com) =>
-      com.every((index) => grid[index] === node)
-    );
-  }
-
-  if (findWinner()) {
+  if (findWinner(grid)) {
     return { grid, current: null, win: node };
   }
 
