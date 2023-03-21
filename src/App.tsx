@@ -86,8 +86,12 @@ function App() {
   >(reducer, init);
 
   return (
-    <main className="flex justify-center items-center h-screen">
-      {win === null || <div> lol</div>}
+    <main className="flex justify-center items-center h-screen relative">
+      {win === null || (
+        <div className="absolute inset-0 bg-black bg-opacity-90 z-10 flex justify-center items-center">
+          {win}
+        </div>
+      )}
       <div className={`grid grid-cols-3 grid-rows-3 grid-layout ${current}`}>
         {grid.map((node, i) => (
           <Cell
