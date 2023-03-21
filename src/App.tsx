@@ -26,6 +26,16 @@ function reducer(
 
   grid[index] = node === null ? current : node;
 
+  function findWinner() {
+    return winningCombination.some((com) =>
+      com.every((index) => grid[index] === node)
+    );
+  }
+
+  if (findWinner()) {
+    return { grid, current: null, win: node };
+  }
+
   return {
     win,
     grid,
