@@ -1,4 +1,4 @@
-**Live website link <ins>[calculator](https://al-imam-calculator.netlify.app/)</ins>!**
+**Live website link <ins>[tic-tac-toe-game](https://al-imam-tic-tac-toe.netlify.app/)</ins>!**
 
 <hr>
 
