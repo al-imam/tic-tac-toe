@@ -114,7 +114,7 @@ function App() {
       )}
       <div className={`grid grid-cols-3 grid-rows-3 grid-layout ${current}`}>
         {grid.map((node, i) => (
-          <Box classes={node} onTap={() => callback(node, i)} />
+          <Box key={i} classes={node} onTap={() => callback(node, i)} />
         ))}
       </div>
     </main>
