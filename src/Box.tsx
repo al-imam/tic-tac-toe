@@ -8,7 +8,7 @@ export default function Box({
   return (
     <div
       onClick={onTap}
-      className={`box w-40 h-40 flex justify-center items-center ${classes}`}
+      className={`box w-24 sm:w-40 aspect-square flex justify-center items-center ${classes}`}
     ></div>
   );
 }
