@@ -4,8 +4,15 @@
 
 @layer components {
   :root {
-    --cell-size: 10rem;
+    --cell-size: 6rem;
     --mark-size: calc(var(--cell-size) * 0.9);
+  }
+
+  @media (min-width: 640px) {
+    :root {
+      --cell-size: 10rem;
+      --mark-size: calc(var(--cell-size) * 0.9);
+    }
   }
 
   .box {
