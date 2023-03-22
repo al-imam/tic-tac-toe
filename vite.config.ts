@@ -12,11 +12,11 @@ export default defineConfig({
         short_name: "Tic Tac Toe",
         start_url: "/",
         display: "standalone",
-        background_color: "#fff",
         description: "Tic tac toe game!",
         orientation: "portrait",
         lang: "en",
-        theme_color: "#ffffff",
+        background_color: "rgba(255, 255, 255, 0)",
+        theme_color: "rgba(255, 255, 255, 0)",
         icons: [
           {
             src: "manifest-icon-192.maskable.png",
