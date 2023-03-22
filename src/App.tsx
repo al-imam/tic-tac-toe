@@ -101,12 +101,12 @@ function App() {
     <main className="flex justify-center items-center h-screen relative">
       {win === null || (
         <div className="absolute inset-0 bg-black bg-opacity-90 z-10 flex flex-col gap-4 justify-center items-center">
-          <span className="text-6xl text-white">
+          <span className="text-5xl sm:text-6xl text-white">
             {win === "draw" ? "match draw 🤝" : `${win} win 🎉`}
           </span>
           <button
             onClick={() => dispatch({ type: "reset" })}
-            className="text-3xl text-blue-500 hover:text-blue-700 transition"
+            className="text-2xl sm:text-3xl text-blue-500 hover:text-blue-700 transition"
           >
             Restart
           </button>
