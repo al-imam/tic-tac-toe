@@ -14,6 +14,9 @@ export default defineConfig({
         display: "standalone",
         background_color: "#fff",
         description: "Tic tac toe game!",
+        orientation: "portrait",
+        lang: "en",
+        theme_color: "#ffffff",
         icons: [
           {
             src: "manifest-icon-192.maskable.png",
